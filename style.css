@@ -1,0 +1,460 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 20px;
+}
+
+header {
+  background-color: #eec303;
+  color: black
+  padding: 20px 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: brown;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #caa604;
+  background: brown;
+  border-radius: 0.9rem;
+  padding: 5px;
+}
+
+hr {
+  margin: 20px auto;
+  width: 80%;
+  border: 1px solid #ddd;
+}
+
+main {
+  margin: 20px auto;
+  max-width: 900px;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.first {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.first h3 {
+  font-size: 1.5em;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.first p {
+  font-size: 1em;
+  margin-bottom: 15px;
+}
+
+.first button {
+  background-color: brown;
+  color: white;
+  padding: 10px 25px;
+  font-size: 1em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.first button:hover {
+  background-color: #000000;
+}
+
+.about h4 {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #333;
+}
+/*style for my about paragraph*/
+
+.about p {
+  margin: 10px 0;
+  font-size: 1em;
+  color: #555;
+}
+/*m footer design*/
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.9em;
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  background: #000000;
+  padding: 20px;
+}
+/*Style Sheet adopted from Git hub*/
+
+/* General Reset */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #e9f1f7;
+}
+
+/* Header Section */
+.header {
+  background-color: #eec303;
+  color: black;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 4px solid #ccc;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: brown;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #caa604;
+  background: brown;
+  border-radius: 0.9rem;
+  padding: 5px;
+}
+
+
+/* Flip Card Container */
+.lead-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+
+/* Flip Card Styles */
+.flip-card {
+  background-color: transparent;
+  width: 250px;
+  height: 300px;
+  perspective: 1000px;
+  margin: 0 auto;
+}
+
+/* Flip card rotating element*/
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+/* set rotation on hover*/
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* card styling*/
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.flip-card-front img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+/* differentiating the sides with colors*/
+.flip-card-front {
+  background-color: #fff;
+}
+
+/* differentiating the sides with colors*/
+.flip-card-back {
+  background-color: #ff9102;
+  color: rgb(0, 0, 0);
+  transform: rotateY(180deg);
+}
+
+
+
+.team {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.card img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.card h2 {
+  margin: 10px 0 5px;
+}
+
+.card p {
+  color: #666;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+   * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 20px;
+}
+
+header {
+  background-color: #eec303;
+  color: black
+  padding: 20px 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: brown;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #caa604;
+  background: brown;
+  border-radius: 0.9rem;
+  padding: 5px;
+}
+
+hr {
+  margin: 20px auto;
+  width: 80%;
+  border: 1px solid #ddd;
+}
+      /* Form Section Styling */
+main section {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+  text-align: center;
+  color: brown;
+  margin-bottom: 25px;
+}
+
+form label {
+  display: block;
+  margin: 12px 0 5px;
+  color: #333;
+  font-weight: bold;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus {
+  border-color: brown;
+  outline: none;
+}
+
+form button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: brown;
+  color: white;
+  font-size: 1em;
+  border: none;
+  border-radius: 6px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: black;
+}
+footer {
+  margin-top: 40px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.9em;
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  background: #000000;
+  padding: 20px;
+  border-radius: 0.9rem;
+}
+ body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 20px;
+}
+
+header {
+  background-color: #eec303;
+  color: black
+  padding: 20px 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: brown;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #caa604;
+  background: brown;
+  border-radius: 0.9rem;
+  padding: 5px;
+}
+
+hr {
+  margin: 20px auto;
+  width: 80%;
+  border: 1px solid #ddd;
+}
+      /* Recipe Section Styling */
+main section {
+  max-width: 800px;
+  margin: 30px auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+  color: #000000;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+main img {
+  display: block;
+  margin: 0 auto 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+main h3 {
+  margin-top: 25px;
+  color: #333;
+  font-size: 1.3em;
+}
+
+ul, ol {
+  margin-left: 25px;
+  color: #555;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+li {
+  margin-bottom: 8px;
+}
+ footer{
+margin-top: 40px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.9em;
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  background: #000000;
+  padding: 20px;
+}

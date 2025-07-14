@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+  <style>
+    :root {
+      --primary-color: #333;
+      --bg-color: white;
+      --text-color: black;
+      --accent-color: #f1f1f1;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.5s, color 0.5s;
+      padding: 20px;
+    }
+
+    body.dark-mode {
+      --bg-color: #1e1e1e;
+      --text-color: white;
+    }
+
+    body.theme-blue {
+      --primary-color: #007bff;
+      --accent-color: #cce5ff;
+    }
+
+    body.theme-green {
+      --primary-color: #28a745;
+      --accent-color: #d4edda;
+    }
+
+    body.theme-red {
+      --primary-color: #dc3545;
+      --accent-color: #f8d7da;
+    }
+
+    body.theme-purple {
+      --primary-color: #6f42c1;
+      --accent-color: #e2d9f3;
+    }
+
+    #topBar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background: var(--accent-color);
+      border: 2px solid var(--primary-color);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 4px;
+      color: var(--primary-color);
+    }
+
+    button:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .icon {
+      font-size: 18px;
+    }
+
+    #clock {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    select {
+      padding: 6px;
+      margin-left: 8px;
+      border: 1px solid var(--primary-color);
+      color: var(--text-color);
+      background-color: var(--bg-color);
+    }
+
+    header {
+      text-align: center;
+    }
+
+    nav {
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: var(--primary-color);
+      border-bottom: 2px solid transparent;
+    }
+
+    nav a:hover {
+      border-bottom: 2px solid var(--primary-color);
+    }
+
+    h1, h2 {
+      border-left: 5px solid var(--primary-color);
+      padding-left: 10px;
+    }
+
+    main section {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    input,
+    form,
+    section {
+      background-color: inherit;
+      color: inherit;
+      border: 1px solid var(--primary-color);
+      padding: 8px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    hr {
+      border-color: var(--primary-color);
+    }
+
+    footer {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body onload="initPage()">
+  <div id="topBar">
+    <div>
+      <div id="clock">Loading time...</div>
+      <label for="timezone">Timezone:</label>
+      <select id="timezone">
+        <option value="Africa/Nairobi">Nairobi</option>
+        <option value="Europe/London">London</option>
+        <option value="America/New_York">New York</option>
+        <option value="Asia/Tokyo">Tokyo</option>
+      </select>
+    </div>
+    <div>
+      <button onclick="toggleDarkMode()">
+        <span class="icon" id="modeIcon">🌞</span> Toggle Dark Mode
+      </button>
+      <select id="themePicker" onchange="changeTheme(this.value)">
+        <option value="">Default</option>
+        <option value="blue">Blue Theme</option>
+        <option value="green">Green Theme</option>
+        <option value="red">Red Theme</option>
+        <option value="purple">Purple Theme</option>
+      </select>
+    </div>
+  </div>
+
+  <header>
+    <h1>Will Premium Recipe</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="recipe.html">Recipe</a>
+      <a href="register.html">Register</a>
+      <a href="team.html">Meet Our Team</a>
+    </nav>
+    <hr />
+  </header>
+
+  <main>
+    <section>
+      <h2>Register for Free</h2>
+      <form onsubmit="return validateForm()">
+        <label for="name">Full Name:</label><br />
+        <input type="text" id="name" name="name" /><br><br>
+
+        <label for="email">Email Address:</label><br />
+        <input type="email" id="email" name="email" /><br><br>
+
+        <label for="number">Phone Number:</label><br />
+        <input type="number" id="phone-number" name="number" /><br><br>
+
+        <label for="password">Password:</label><br />
+        <input type="password" id="password" name="password" /><br><br>
+
+        <button type="submit">Register</button>
+      </form>
+    </section>
+  </main>
+
+
+  <script>
+    const timezoneSelect = document.getElementById("timezone");
+
+    function toggleDarkMode() {
+      const body = document.body;
+      const icon = document.getElementById("modeIcon");
+      body.classList.toggle("dark-mode");
+      const isDark = body.classList.contains("dark-mode");
+      icon.textContent = isDark ? "🌙" : "🌞";
+      localStorage.setItem("mode", isDark ? "dark" : "light");
+    }
+
+    function changeTheme(theme) {
+      document.body.classList.remove("theme-blue", "theme-green", "theme-red", "theme-purple");
+      if (theme) document.body.classList.add("theme-" + theme);
+      localStorage.setItem("theme", theme);
+    }
+
+    function updateTime() {
+      const selectedZone = timezoneSelect.value || Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const now = new Date().toLocaleString("en-US", {
+        timeZone: selectedZone,
+        timeStyle: "medium",
+        dateStyle: "medium",
+      });
+      document.getElementById("clock").textContent = now;
+      localStorage.setItem("timezone", selectedZone);
+    }
+
+    function initPage() {
+      // Load saved mode
+      const savedMode = localStorage.getItem("mode");
+      if (savedMode === "dark") {
+        document.body.classList.add("dark-mode");
+        document.getElementById("modeIcon").textContent = "🌙";
+      }
+
+      // Load saved theme
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+        document.body.classList.add("theme-" + savedTheme);
+        document.getElementById("themePicker").value = savedTheme;
+      }
+
+      // Load saved timezone
+      const savedZone = localStorage.getItem("timezone");
+      if (savedZone) timezoneSelect.value = savedZone;
+
+      startClock();
+    }
+
+    function startClock() {
+      updateTime();
+      setInterval(updateTime, 1000);
+    }
+     
+    function validateForm() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone-number").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      // Validate full name (letters and space only)
+      const nameRegex = /^[A-Za-z\s]+$/;
+      if (!nameRegex.test(name)) {
+        alert("Full name must contain only letters and spaces.");
+        return false;
+      }
+
+      // Validate email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+
+      // Validate phone number (only digits, at least 10 digits)
+      const phoneRegex = /^\d{10,}$/;
+      if (!phoneRegex.test(phone)) {
+        alert("Phone number must be at least 10 digits and contain only numbers.");
+        return false;
+      }
+
+      // Validate strong password
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$/;
+      if (!passwordRegex.test(password)) {
+        alert("Password must be at least 8 characters and include uppercase, lowercase, number, and special character.");
+        return false;
+      }
+
+      // If all validations pass
+      alert("You have successfully registered!");
+      return true;
+    }
+
+    timezoneSelect.addEventListener("change", updateTime);
+  </script>
+</body>
+</html>
